@@ -160,8 +160,12 @@ with open("Hello.csv","r",newline='') as f:
         if count == 10:
             exit()
 
-
-
-
-
+# Create a ZIp File with Following text File
+#              Day1Task
+#              Day2Task
+#              Day3Task
+from zipfile import *
+with ZipFile("Hello.zip","w",ZIP_DEFLATED) as f:
+    f.write("Hello.csv")
+    f.write("append.txt")
 
