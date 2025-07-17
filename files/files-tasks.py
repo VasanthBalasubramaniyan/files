@@ -2,6 +2,8 @@
 #              a.Check whether file is readable or not?
 #              b.Check whether file is writable or not?
 #              c.Check whether file is closed or not?
+from itertools import count
+
 f = open(r"C:\Users\Vasanth\PycharmProjects\Files - Task\files\read.txt", "r")
 print(f.readable())
 print(f.writable())
@@ -117,11 +119,46 @@ c = f.readlines()
 print(c)
 f.close()
 
+# Description :Copy Jpeg image from Local Disk D to Local Disk E
+import shutil
+shutil.copy(r"C:\Users\Vasanth\Downloads\test.jpg",r"C:\Users\Vasanth\Downloads\Video")
+print("Image Copied")
+
+# Copy one video Local Disk E to Local Disk D
+import shutil
+shutil.copy(r"C:\Users\Vasanth\Downloads\Screen Recording 2025-06-30 100004.mp4",r"C:\Users\Vasanth\Downloads\Video")
+print("Video Copied")
+
+# Description :Create a CSV File for 10 Employee Details
+import csv
+employees = [
+    [101, "Vasanth", "vasanth@gmail.com", "HR"],
+    [102, "Nisha", "nisha@gmail.com", "Finance"],
+    [103, "Bala", "bala@gmail.com", "Marketing"],
+    [104, "Ganesh", "ganesh@gmail.com", "IT"],
+    [105, "Priya", "priya@gmail.com", "Admin"],
+    [106, "Kumar", "kumar@gmail.com", "Support"],
+    [107, "Divya", "divya@gmail.com", "R&D"],
+    [108, "Arun", "arun@gmail.com", "Operations"],
+    [109, "Keerthana", "keerthana@gmail.com", "Sales"],
+    [110, "Saravanan", "saravanan@gmail.com", "Legal"]
+]
+with open("Hello.csv","w",newline='') as f:
+    v = csv.writer(f)
+    v.writerow(["ID", "Name", "Email", "Department"])
+    v.writerows(employees)
 
 
-
-
-
+# Read 10 Employee Details from CSV File
+import csv
+with open("Hello.csv","r",newline='') as f:
+    reader = csv.reader(f)
+    count = 0
+    for i in reader:
+        print(i)
+        count += 1
+        if count == 10:
+            exit()
 
 
 
